@@ -1,0 +1,42 @@
+using System;
+
+public class Aufgabe4{
+
+    public static void Main(){
+
+        do
+        {
+            Console.WriteLine("Geben Sie die 1. Zahl ein:");
+           int zahl1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Geben Sie die 2. Zahl ein:");
+            int zahl2 = int.Parse(Console.ReadLine());
+
+             if (zahl1 < zahl2)
+            {
+                int temp = zahl1;
+                zahl1 = zahl2;
+                zahl2 = temp;
+            }
+
+            int ggT = BerechneGGT(zahl1, zahl2);
+
+
+            Console.WriteLine($"Der ggT von {zahl1} und {zahl2} ist {ggT}");
+
+            Console.WriteLine("Wollen Sie nochmal(J/N)");
+        } while (Console.ReadLine().ToUpper() == "J");
+    }
+
+   static int BerechneGGT(int a, int b)
+    {
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+}
